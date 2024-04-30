@@ -59,7 +59,7 @@ header h1 {
     color: #7a75bc;
 }
 
-header h1 .moblie {
+header h1 .mobile {
     display: none;
 }
 
@@ -76,6 +76,7 @@ header nav ul li a {
     align-items: center;
     height: 50px;
     padding: 20px 10px;
+    color: #7a75bc;
     box-sizing: border-box;
 }
 
@@ -366,28 +367,31 @@ header nav ul li img {
     padding: 0 10px;
 }
 
-.portfolio .listMore {
+.listMore {
    /*  display: none; */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: calc(100vh - 200px);
-    background-color: rgb(170, 238, 231);
+    height: calc(100vh - 100px);
     z-index: 200;
+    background-color: #fff;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.portfolio .listMore .top {
+.listMore .top {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60px;
-    background-color: pink;
+    background-color: #f3f3f3;
 }
 
-.portfolio .listMore .top .searchBox {
+.listMore .top .searchBox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -397,7 +401,7 @@ header nav ul li img {
     background-color: #fff;
 }
 
-.portfolio .listMore .top .close {
+.listMore .top .close {
     position: absolute;
     top: 50%;
     right: 40px;
@@ -405,43 +409,210 @@ header nav ul li img {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-color: red;
+    background: url('../images/ico/ico-close.png') no-repeat center #DD2525;
 }
 
-.portfolio .listMore ul {
+.listMore > ul {
     width: 100%;
     height: calc(100% - 50px);
     padding: 40px;
-    background-color: #7a75bc;
     box-sizing: border-box;
 }
 
-.portfolio .listMore ul li {
+.listMore > ul > li {
     display: none;
     width: 100%;
     height: 100%;
-    background-color: #7a75bc;
 }
 
-.portfolio .listMore ul li.active {
+.listMore > ul > li.active {
     display: flex;
 }
 
-.portfolio .listMore ul li .imgBox {
+.listMore .imgBox {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
 }
 
-.portfolio .listMore ul li .textBox {
+.listMore .imgBox::-webkit-scrollbar{
+    display:none;
+}
+
+.listMore .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    filter: brightness(50%);
+}
+
+.listMore .imgBox::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '여기에서 스크롤 해보세요!';
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    z-index: 1;
+}
+
+.listMore .imgBox:hover::after {
+    display: none;
+}
+
+.listMore .imgBox:hover img {
+    filter: none;
+}
+
+.listMore .textBox {
+    position: relative;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
     width: 50%;
+    padding-left: 80px;
+    box-sizing: border-box;
 }
 
+.listMore .textBox h3 {
+    padding: 0 0 40px;
+    font-size: 42px;
+    font-weight: 600;
+}
 
+.listMore .textBox p {
+    padding: 0 0 40px;
+    line-height: 1.6;
+}
+
+.listMore .textBox .info {
+    display: flex;
+    flex-flow: column;
+    height: auto;
+}
+
+.listMore .textBox .info > li {
+    display: flex;
+    padding: 15px 0;
+}
+
+.listMore .textBox .info li span {
+    display: block;
+    width: 100px;
+}
+
+.listMore .textBox .info ul {
+    display: flex;
+}
+
+.listMore .textBox .info ul li {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.listMore .textBox .info ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.listMore .textBox ul.validator li {
+    width: 80px;
+    height: 40px;
+}
+
+.listMore .textBox ul.validator li img {
+    width: 80px;
+    height: 40px;
+}
+
+.listMore .textBox a.goTo {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 30px;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #bebebe;
+    transition: all 0.3s;
+}
+
+.listMore .textBox a.goTo:hover {
+    text-decoration: underline;
+}
+
+.listMore .moreItem li:nth-child(1) h3 {
+    color: #DD2525;
+}
+
+.listMore .moreItem li:nth-child(1) .goTo:hover {
+    background-color: #DD2525;
+
+}
+
+.listMore .moreItem li:nth-child(2) .goTo:hover {
+    background-color: #000;
+}
+
+.listMore .moreItem li:nth-child(3) h3 {
+    color: #071F75;
+}
+
+.listMore .moreItem li:nth-child(3) .goTo:hover {
+    background-color: #071F75;
+}
+
+.listMore .moreItem li:nth-child(4) h3 {
+    color: #227C39;
+}
+
+.listMore .moreItem li:nth-child(4) .goTo:hover {
+    background-color: #227C39;
+}
+
+.listMore .moreItem li:nth-child(5) h3 {
+    color: #FF5B00;
+}
+
+.listMore .moreItem li:nth-child(5) .goTo:hover {
+    background-color: #FF5B00;
+}
+
+.listMore .moreItem li:nth-child(6) h3 {
+    color: #6941D9;
+}
+
+.listMore .moreItem li:nth-child(6) .goTo:hover {
+    background-color: #6941D9;
+}
+
+.listMore .moreItem li:nth-child(6) .imgBox img,
+.listMore .moreItem li:nth-child(7) .imgBox img {
+    filter: none;
+}
+
+.listMore .moreItem li:nth-child(6) .imgBox::after,
+.listMore .moreItem li:nth-child(7) .imgBox::after {
+    display: none;
+}
+
+.listMore .moreItem li:nth-child(7) h3 {
+    color: #c6abaa;
+}
+
+.listMore .moreItem li:nth-child(7) .goTo:hover {
+    background-color: #c6abaa;
+}
 
 /* section.design */
 .design {
@@ -697,6 +868,14 @@ footer p {
         font-size: 45px;
     }
 
+    header h1 .pc {
+        display: none;
+    }
+
+    header h1 .mobile {
+        display: block;
+    }
+
     header nav ul li {
         padding: 0;
     }
@@ -758,14 +937,6 @@ footer p {
     /* header */
     header {
         padding: 0px 10px;
-    }
-
-    header h1 .pc {
-        display: none;
-    }
-
-    header h1 .moblie {
-        display: block;
     }
 
     header nav ul li a {

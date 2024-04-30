@@ -84,8 +84,6 @@ $(document).ready(function()
 
 
 
-
-
     $('.listMore').hide();
     //works누르면 상세 화면 나옴
     let index = 0;//몇번째 work를 눌렀는지 저장하는 변수
@@ -94,8 +92,8 @@ $(document).ready(function()
         index = $(this).index(); 
         //해당하는 상세화면이 나오게함
         $('.listMore').show();
-        $('moreItem').removeClass('active');
-        $('moreItem').eq(index).addClass('active');
+        $('.moreItem > li').removeClass('active');
+        $('.moreItem > li').eq(index).addClass('active');
         $('body').css('overflow','hidden');
     })
 
@@ -103,8 +101,14 @@ $(document).ready(function()
     $('.close').on('click', function()
     {
         $('.listMore').hide();
-        $('moreItem').removeClass('active');
+        $('.moreItem > li').removeClass('active');
         $('body').css('overflow-y','visible');
+    })
+
+    //listMore img에서 mouseleave되면 img top(0)으로 감
+    $('.listMore .imgBox').mouseleave(function()
+    {
+        $(this).scrollTop(0);
     })
 
     //디자인 스와이퍼
