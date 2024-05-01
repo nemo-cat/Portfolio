@@ -368,7 +368,6 @@ header nav ul li img {
 }
 
 .listMore {
-   /*  display: none; */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -388,7 +387,7 @@ header nav ul li img {
     justify-content: center;
     align-items: center;
     height: 60px;
-    background-color: #f3f3f3;
+    background-color: #c7c5ea;
 }
 
 .listMore .top .searchBox {
@@ -413,9 +412,10 @@ header nav ul li img {
 }
 
 .listMore > ul {
+    display: flex;
     width: 100%;
-    height: calc(100% - 50px);
-    padding: 40px;
+    height: calc(100% - 60px);
+    padding: 30px;
     box-sizing: border-box;
 }
 
@@ -423,27 +423,39 @@ header nav ul li img {
     display: none;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
 }
 
 .listMore > ul > li.active {
-    display: flex;
+    display: block;
 }
 
-.listMore .imgBox {
-    position: relative;
+.listMore .inner {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: 100%;
+}
+
+.listMore .inner .left {
     width: 50%;
+    padding-right: 20px;
+}
+
+.listMore .inner .left .imgBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
     -ms-overflow-style: none;
 }
 
-.listMore .imgBox::-webkit-scrollbar{
+.listMore .inner .left .imgBox::-webkit-scrollbar{
     display:none;
 }
 
-.listMore .imgBox img {
+
+.listMore .inner .left .imgBox img{
     position: absolute;
     top: 0;
     left: 0;
@@ -471,83 +483,72 @@ header nav ul li img {
 .listMore .imgBox:hover img {
     filter: none;
 }
-
-.listMore .textBox {
-    position: relative;
+.listMore .inner .right {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column;
+    justify-content: space-between;
     width: 50%;
-    padding-left: 80px;
-    box-sizing: border-box;
+    padding-left: 20px;
 }
 
-.listMore .textBox h3 {
-    padding: 0 0 40px;
-    font-size: 42px;
+.listMore .right h3 {
+    font-size: 40px;
     font-weight: 600;
 }
 
-.listMore .textBox p {
-    padding: 0 0 40px;
+.listMore .right p {
+    padding: 10px 0;
     line-height: 1.6;
-}
-
-.listMore .textBox .info {
-    display: flex;
-    flex-flow: column;
-    height: auto;
-}
-
-.listMore .textBox .info > li {
-    display: flex;
-    padding: 15px 0;
-}
-
-.listMore .textBox .info li span {
-    display: block;
-    width: 100px;
-}
-
-.listMore .textBox .info ul {
-    display: flex;
-}
-
-.listMore .textBox .info ul li {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-
-.listMore .textBox .info ul li img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    line-break: anywhere;
 }
 
-.listMore .textBox ul.validator li {
+.listMore .right .info > li{
+    display: flex;
+    padding: 7px 0;
+    
+}
+
+.listMore .right .info li > span {
     width: 80px;
-    height: 40px;
 }
 
-.listMore .textBox ul.validator li img {
+.listMore .right .info ul {
+    display: flex;
+}
+
+.listMore .right .info .skill li {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    margin-right: 7px;
+    
+}
+
+.listMore .right .info .validator li {
+    display: flex;
+    margin-right: 7px;
+}
+
+.listMore .right .info .validator li img {
     width: 80px;
-    height: 40px;
 }
 
-.listMore .textBox a.goTo {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 20px 30px;
+.listMore .right .goTo {
+    display: block;
+    width: 120px;
+    height: 50px;
+    margin: 10px auto 0;
+    line-height: 50px;
     border-radius: 50px;
+    text-align: center;
     font-size: 14px;
     color: #fff;
-    background-color: #bebebe;
-    transition: all 0.3s;
+    background-color: #d0d0d0;
 }
 
-.listMore .textBox a.goTo:hover {
+
+.listMore .right .goTo:hover {
     text-decoration: underline;
 }
 
@@ -822,6 +823,7 @@ footer p {
     h3 {
         font-size: 36px;
     }
+
 }
 
 @media all and (max-width: 1280px) {
@@ -843,6 +845,25 @@ footer p {
 }
 
 @media all and (max-width: 1024px) {
+    .listMore {
+        width: 90%;
+        height: calc(100vh - 50px);
+    }
+
+    .listMore > ul {
+        padding: 15px;
+    }
+
+    .listMore .inner .left {
+        padding-right: 10px;
+    }
+
+    .listMore .inner .righ {
+        padding-left: 10px;
+    }
+    
+    
+
     .portfolio h2 {
         font-size: 130px;
     }
@@ -864,6 +885,36 @@ footer p {
 }
 
 @media all and (max-width: 768px) {
+    .listMore > ul {
+        padding: 30px;
+    }
+
+    .listMore .inner {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .listMore .inner .left {
+        width: 100%;
+        padding: 0;
+    }
+
+    .listMore .inner .left .imgBox {
+        width: 100%;
+        aspect-ratio: 3/2;
+    }
+
+    .listMore .inner .right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .listMore .inner .right .textBox {
+        margin-top: 30px;
+    }
+ 
+
+
     h2 {
         font-size: 45px;
     }
@@ -919,6 +970,10 @@ footer p {
 }
 
 @media all and (max-width: 500px) {
+   
+
+   
+
     .wrap {
         min-width: 320px;
         width: 100%;
@@ -993,18 +1048,4 @@ footer p {
         object-fit: contain;
     }
 
-    /* .contactBox .mail::before {
-        right: -150px;
-        bottom: -280px;
-        width: 150px;
-        height: 150px;
-        background-size: contain;
-    }
-
-    .contactBox .phone::before {
-        bottom: -280px;
-        width: 150px;
-        height: 150px;
-        background-size: contain;
-    } */
 }
