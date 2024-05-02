@@ -97,20 +97,6 @@ $(document).ready(function()
         let adress = $(this).find('h3').text();
         changeAdress(adress);
     })
-
-    $('.design-swiper .modalOpen').on('click',function()
-    {
-        // 해당 id값 가져오기
-        index = $(this).attr('id');
-        //해당하는 상세화면이 나오게함
-        $('.design .listMore').show();
-        $('.design .moreItem > li').removeClass('active');
-        $('.'+index).addClass('active');
-        $('body').css('overflow','hidden');
-
-       
-    })
-
     
     //listMore 주소창 주소 변경
     function changeAdress(adress)
@@ -130,6 +116,17 @@ $(document).ready(function()
     $('.listMore .imgBox').mouseleave(function()
     {
         $(this).scrollTop(0);
+    })
+
+    $('.design-swiper .modalOpen').on('click',function()
+    {
+        // 해당 id값 가져오기
+        index = $(this).attr('id');
+        //해당하는 상세화면이 나오게함
+        $('.design .listMore').show();
+        $('.design .moreItem > li').removeClass('active');
+        $('.'+index).addClass('active');
+        $('body').css('overflow','hidden');
     })
 
     //디자인 스와이퍼
