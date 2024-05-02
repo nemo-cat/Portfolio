@@ -22,6 +22,7 @@
 .wrap {
     position: relative;
     width: 80%;
+    max-width: 1920px;
     margin: 0 auto;
 }
 
@@ -317,33 +318,6 @@ header nav ul li img {
     transform: scale(1.1);
 }
 
-/* .portfolio .list li .imgBox::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 250px;
-    height: 250px;
-    border-radius: 100%;
-    background-color: #fff;
-    border: 1px solid #ebebeb;
-    z-index: 10;
-}
-
-.portfolio .list li .imgBox::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    content: '';
-    width: 250px;
-    height: 250px;
-    border-radius: 100%;
-    background-color: #000000;
-    z-index: 10;
-} */
-
 .portfolio .list li .textBox {
     padding: 20px;
 }
@@ -364,7 +338,11 @@ header nav ul li img {
 }
 
 .portfolio .list li .textBox .tags .tag {
-    padding: 0 10px;
+    padding: 5px 7px;
+    margin-left: 7px;
+    font-size: 12px;
+    background-color: #7a75bc;
+    color: #fff;
 }
 
 .listMore {
@@ -373,7 +351,9 @@ header nav ul li img {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    height: calc(100vh - 100px);
+    max-width: 1920px;
+    height: calc(100vh - 200px);
+    max-height: 1080px;
     z-index: 200;
     background-color: #fff;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -386,7 +366,7 @@ header nav ul li img {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 80px;
     background-color: #c7c5ea;
 }
 
@@ -398,6 +378,7 @@ header nav ul li img {
     height: 40px;
     border-radius: 40px;
     background-color: #fff;
+    font-size: 14px;
 }
 
 .listMore .top .close {
@@ -414,8 +395,8 @@ header nav ul li img {
 .listMore > ul {
     display: flex;
     width: 100%;
-    height: calc(100% - 60px);
-    padding: 30px;
+    height: calc(100% - 80px);
+    padding: 60px;
     box-sizing: border-box;
 }
 
@@ -439,7 +420,7 @@ header nav ul li img {
 
 .listMore .inner .left {
     width: 50%;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
 .listMore .inner .left .imgBox {
@@ -452,6 +433,20 @@ header nav ul li img {
 
 .listMore .inner .left .imgBox::-webkit-scrollbar{
     display:none;
+}
+
+.listMore .inner .left .imgBox.notScroll {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f3f3f3;
+}
+
+.listMore .inner .left .imgBox.notScroll img {
+    position: static;
+    width: 100%;
+    object-fit: contain;
+
 }
 
 
@@ -483,21 +478,22 @@ header nav ul li img {
 .listMore .imgBox:hover img {
     filter: none;
 }
+
 .listMore .inner .right {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     width: 50%;
-    padding-left: 20px;
+    padding: 0 30px;
 }
 
 .listMore .right h3 {
-    font-size: 40px;
+    font-size: 64px;
     font-weight: 600;
 }
 
 .listMore .right p {
-    padding: 10px 0;
+    padding: 20px 0;
     line-height: 1.6;
     width: 100%;
     line-break: anywhere;
@@ -505,8 +501,7 @@ header nav ul li img {
 
 .listMore .right .info > li{
     display: flex;
-    padding: 7px 0;
-    
+    padding: 12px 0;
 }
 
 .listMore .right .info li > span {
@@ -698,6 +693,27 @@ header nav ul li img {
     background-color: red;
 }
 
+.design .listMore .inner {
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.design .listMore > ul {
+    padding: 0;
+}
+
+.design .moreItem .imgBox {
+    width: 100%;
+}
+
+.design .listMore .imgBox::after {
+    display: none;
+}
+
+.design .moreItem .imgBox img {
+    width: 100%;
+}
+
 
 /* footer */
 footer {
@@ -776,39 +792,6 @@ footer .inner {
     font-size: 36px;
 }
 
-/* .contactBox .mail::before {
-    position: absolute;
-    right: -220px;
-    bottom: -400px;
-    content: '';
-    width: 200px;
-    height: 200px;
-    background: url('../images/footer/mail.png') no-repeat center;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    transition-duration: 3s;
-}
-
-.contactBox .phone::before {
-    position: absolute;
-    right: 0px;
-    bottom: -400px;
-    content: '';
-    width: 200px;
-    height: 200px;
-    background: url('../images/footer/phone.png') no-repeat center;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    transition-duration: 3s;
-}
-
-.contactBox  div:hover::before {
-    opacity: 1;
-}
- */
-
 footer .imgBox {
     position: relative;
     text-align: center;
@@ -819,9 +802,50 @@ footer p {
     padding: 70px 0
 }
 
+@media all and (max-width: 1600px) {
+    /* portfolio */
+    .listMore {
+        height: calc(100vh - 100px);
+    }
+    
+    .listMore .top {
+        height: 60px;
+    }
+    
+    .listMore > ul {
+        height: calc(100% - 60px);
+        padding: 30px;
+    }
+    
+    .listMore .inner .left {
+        padding-right: 20px;
+    }
+    
+    .listMore .inner .right {
+        padding: 0 15px;
+    }
+    
+    .listMore .right h3 {
+        font-size: 50px;
+    }
+    
+    .listMore .right p {
+        padding: 10px 0;
+    }
+    
+    .listMore .right .info > li{
+        padding: 7px 0;
+    }
+}
+
 @media all and (max-width: 1440px) {
     h3 {
         font-size: 36px;
+    }
+
+    /* design */
+    .design .listMore .inner {
+        padding: 30px;
     }
 
 }
@@ -835,6 +859,7 @@ footer p {
         padding: 0 5%;
     }
 
+    /* portfolio */
     .portfolio .list li {
         width: 48%;
     }
@@ -845,6 +870,26 @@ footer p {
 }
 
 @media all and (max-width: 1024px) {
+    /* portfolio */
+    .portfolio h2 {
+        font-size: 130px;
+    }
+
+    .portfolio .list {
+        flex-flow: column nowrap;
+        align-items: center;
+        padding-bottom: 100px;
+    }
+
+    .portfolio .list li {
+        width: 100%;
+    }
+
+    .portfolio .list li:nth-child(2n) {
+        width: 100%;
+        margin: 0 0 70px;
+    }
+
     .listMore {
         width: 90%;
         height: calc(100vh - 50px);
@@ -862,63 +907,14 @@ footer p {
         padding-left: 10px;
     }
     
-    
-
-    .portfolio h2 {
-        font-size: 130px;
-    }
-
-    .portfolio .list {
-        flex-flow: column nowrap;
-        align-items: center;
-        padding-bottom: 100px;
-    }
-
-    .portfolio .list li {
-        width: 100%;
-    }
-
-    .portfolio .list li:nth-child(2n) {
-        width: 100%;
-        margin: 0 0 70px        ;
-    }
 }
 
 @media all and (max-width: 768px) {
-    .listMore > ul {
-        padding: 30px;
-    }
-
-    .listMore .inner {
-        display: flex;
-        flex-flow: column;
-    }
-
-    .listMore .inner .left {
-        width: 100%;
-        padding: 0;
-    }
-
-    .listMore .inner .left .imgBox {
-        width: 100%;
-        aspect-ratio: 3/2;
-    }
-
-    .listMore .inner .right {
-        width: 100%;
-        padding: 0;
-    }
-
-    .listMore .inner .right .textBox {
-        margin-top: 30px;
-    }
- 
-
-
     h2 {
         font-size: 45px;
     }
 
+    /* header */
     header h1 .pc {
         display: none;
     }
@@ -959,21 +955,55 @@ footer p {
     .about .textBox table {
         line-height: 1.6;
     }
-    
 
     /* .portfolio */
     .portfolio h2 {
         font-size: 90px;
     }
 
+    .listMore > ul {
+        padding: 0;
+    }
+
+    .listMore .inner {
+        display: flex;
+        flex-flow: column;
+    }
+
+    .listMore .inner .left {
+        width: 100%;
+        padding: 20px 20px 0;
+        box-sizing: border-box;
+    }
+
+    .listMore .inner .left .imgBox {
+        width: 100%;
+        aspect-ratio: 3/2;
+    }
+
+    .listMore .inner .right {
+        width: 100%;
+        padding: 0 20px 20px;
+        box-sizing: border-box;
+    }
+
+    .listMore .right h3 {
+        font-size: 10vw;
+    }
+
+    .listMore .inner .right .textBox {
+        margin: 30px 0;
+    }
+
+    /* design */
+    .design .listMore .inner {
+        padding: 10px;
+    }
+
     
 }
 
 @media all and (max-width: 500px) {
-   
-
-   
-
     .wrap {
         min-width: 320px;
         width: 100%;
@@ -1032,7 +1062,30 @@ footer p {
         font-size: 65px;
     }
 
+    .listMore .top .searchBox {
+        width: 75%;
+        font-size: 12px;
+    }
+
+    .listMore .top .close {
+        right: 10px;
+    }
+   
+    .listMore .inner .left {
+        padding: 10px 10px 0;
+    }
+
+    .listMore .inner .right {
+        padding: 0 10px 10px;
+    }
+
+    .listMore .inner .right .textBox {
+        margin: 20px 0;
+    }
+
+    /* footer */
     footer {
+        min-width: 320px;
         overflow: hidden;
     }
 

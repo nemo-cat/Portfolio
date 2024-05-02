@@ -82,8 +82,6 @@ $(document).ready(function()
         } 
     }  
 
-
-
     $('.listMore').hide();
     //works누르면 상세 화면 나옴
     let index = 0;//몇번째 work를 눌렀는지 저장하는 변수
@@ -91,11 +89,34 @@ $(document).ready(function()
     {
         index = $(this).index(); 
         //해당하는 상세화면이 나오게함
-        $('.listMore').show();
-        $('.moreItem > li').removeClass('active');
-        $('.moreItem > li').eq(index).addClass('active');
+        $('.portfolio .listMore').show();
+        $('.portfolio .moreItem > li').removeClass('active');
+        $('.portfolio .moreItem > li').eq(index).addClass('active');
         $('body').css('overflow','hidden');
+
+        let adress = $(this).find('h3').text();
+        changeAdress(adress);
     })
+
+    $('.design-swiper .modalOpen').on('click',function()
+    {
+        // 해당 id값 가져오기
+        index = $(this).attr('id');
+        //해당하는 상세화면이 나오게함
+        $('.design .listMore').show();
+        $('.design .moreItem > li').removeClass('active');
+        $('.'+index).addClass('active');
+        $('body').css('overflow','hidden');
+
+       
+    })
+
+    
+    //listMore 주소창 주소 변경
+    function changeAdress(adress)
+    {
+        $('.portfolio .searchBox').html(`https://wwww.${adress}.sr`); 
+    }
 
     //닫기 버튼 누르면 상세화면 사라짐
     $('.close').on('click', function()
