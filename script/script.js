@@ -28,7 +28,7 @@ $(document).ready(function()
     if(typingBool == false)
     { 
         typingBool = true; //타이핑 true로 변경,
-        tyInt = setInterval(typing,200); // 첫번재 반복동작 
+        tyInt = setInterval(typing, 200); // 첫번재 반복동작 
     } 
          
     function typing()
@@ -94,6 +94,7 @@ $(document).ready(function()
         $('.portfolio .moreItem > li').eq(index).addClass('active');
         $('body').css('overflow','hidden');
 
+        // searchBox 주소 변경
         let adress = $(this).find('h3').text();
         changeAdress(adress);
     })
@@ -117,24 +118,6 @@ $(document).ready(function()
     {
         $(this).scrollTop(0);
     })
-
-    $('.design-swiper .modalOpen').on('click',function()
-    {
-        // 해당 id값 가져오기
-        index = $(this).attr('id');
-        //해당하는 상세화면이 나오게함
-        $('.design .listMore').show();
-        $('.design .moreItem > li').removeClass('active');
-        $('.'+index).addClass('active');
-        $('body').css('overflow','hidden');
-    })
-
-    //design listMore img에서 mouseleave되면 scroll top(0)으로 감
-    $('.design .listMore img').mouseleave(function()
-    {
-        $('.design .listMore ul li').scrollTop(0);
-    })
-
 
     //디자인 스와이퍼
     let designSwiper = new Swiper('.design-swiper',
@@ -168,6 +151,25 @@ $(document).ready(function()
         }
     });
 
+    //desgin 포토샵, 일러스트로 작업한것은 modal창으로 보여줌
+    $('.design-swiper .modalOpen').on('click',function()
+    {
+        // 해당 id값 가져오기
+        index = $(this).attr('id');
+        //해당하는 상세화면이 나오게함
+        $('.design .listMore').show();
+        $('.design .moreItem > li').removeClass('active');
+        $('.'+index).addClass('active');
+        $('body').css('overflow','hidden');
+    })
+
+    //design listMore img에서 mouseleave되면 scroll top(0)으로 감
+    $('.design .listMore img').mouseleave(function()
+    {
+        $('.design .listMore ul li').scrollTop(0);
+    })
+
+
     //footer Img 변경
     let footerImg = $('footer .imgBox img').attr('src'); //기존 경로 저장
     
@@ -185,7 +187,6 @@ $(document).ready(function()
     {
       $('footer .imgBox img').attr('src',footerImg); 
     })
-
 
 
     /* =========== GSAP 애니메이션 =========== */
@@ -208,8 +209,6 @@ $(document).ready(function()
         duration: 5
     },3)
 
-
-
     //portfolio 글자 애니메이션 (좌우에서 나옴)
     gsap.timeline({
         scrollTrigger: {
@@ -231,7 +230,6 @@ $(document).ready(function()
         {x:'0%', ease:'none', duration:5,}
     ,0)
  
-
     //portfolio 글씨 가운데에 고정됨
     gsap.timeline({
             scrollTrigger: {
@@ -282,8 +280,6 @@ $(document).ready(function()
         duration:5
     },0)
 
-
-
     // Design
     gsap.timeline({
         scrollTrigger: {
@@ -302,9 +298,4 @@ $(document).ready(function()
         opacity: 0,
         duration: 5
     })
-
-
-   
-
-  
 })
