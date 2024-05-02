@@ -112,7 +112,7 @@ $(document).ready(function()
         $('body').css('overflow-y','visible');
     })
 
-    //listMore img에서 mouseleave되면 img top(0)으로 감
+    //listMore imgBox에서 mouseleave되면 img top(0)으로 감
     $('.listMore .imgBox').mouseleave(function()
     {
         $(this).scrollTop(0);
@@ -128,6 +128,13 @@ $(document).ready(function()
         $('.'+index).addClass('active');
         $('body').css('overflow','hidden');
     })
+
+    //design listMore img에서 mouseleave되면 scroll top(0)으로 감
+    $('.design .listMore img').mouseleave(function()
+    {
+        $('.design .listMore ul li').scrollTop(0);
+    })
+
 
     //디자인 스와이퍼
     let designSwiper = new Swiper('.design-swiper',

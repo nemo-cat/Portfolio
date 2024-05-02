@@ -12,7 +12,7 @@
 
 ::-webkit-scrollbar-thumb {
     border-radius: 30px;
-    background-color: #7a75bc;
+    background-color: #5c5896;
 }
 
 .en {
@@ -96,7 +96,7 @@ header nav ul li img {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     padding-top: 100px;
     box-sizing: border-box;
 }
@@ -346,6 +346,7 @@ header nav ul li img {
 }
 
 .listMore {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -389,7 +390,7 @@ header nav ul li img {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background: url('../images/ico/ico-close.png') no-repeat center #DD2525;
+    background: url('../images/ico/ico-close.png') no-repeat center #e37272;
 }
 
 .listMore > ul {
@@ -450,7 +451,7 @@ header nav ul li img {
 }
 
 
-.listMore .inner .left .imgBox img{
+.listMore .inner .left .imgBox img {
     position: absolute;
     top: 0;
     left: 0;
@@ -475,7 +476,7 @@ header nav ul li img {
     display: none;
 }
 
-.listMore .imgBox:hover img {
+.listMore .inner .left .imgBox:hover img {
     filter: none;
 }
 
@@ -703,6 +704,7 @@ header nav ul li img {
 }
 
 .design .moreItem .imgBox {
+    position: relative;
     width: 100%;
 }
 
@@ -711,6 +713,9 @@ header nav ul li img {
 }
 
 .design .moreItem .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
 }
 
