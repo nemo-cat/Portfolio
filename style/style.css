@@ -598,6 +598,12 @@ header nav ul li img {
     background-color: #c6abaa;
 }
 
+.textNotice {
+    text-decoration: underline;
+    font-size: 14px;
+    color: #DD2525;
+}
+
 /* section.design */
 .design {
     margin-bottom: 100px;
