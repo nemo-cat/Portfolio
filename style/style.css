@@ -263,6 +263,10 @@ header nav ul li img {
     overflow: hidden;
 }
 
+.portfolio h2 span {
+    display: block;
+}
+
 .portfolio .list {
     display: flex;
     flex-flow: row wrap;
