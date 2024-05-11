@@ -9,75 +9,70 @@ $(document).ready(function()
     });
 
     /* visual 텍스트 타이핑 효과 */
-    //타이핑할 텍스트
-    let text = ['안녕하세요','Hello','Hola','こんにちは','Bonjour','Namaste'];
-    let typingBool = false; 
-    let typingIdx = 0; 
-    let liIndex = 0;
-    let arryLength = text.length;
-    let del = -1;
-    let repeatInt = null;
-    let tyInt = null;
+    let text = ['안녕하세요','Hello','Hola','こんにちは','Bonjour','Namaste']; //타이핑할 텍스트
+    let textIndex = 0; // 현재 타이핑된 글자의 인덱스
+    let typingIdx = 0; // 현재 타이핑 중인 텍스트 배열의 인덱스
+    let arryLength = text.length; // 베열의 길이를 담는 변수
+    let del = -1; // 텍스트 삭제를 위한 인덱스
+    let tyInt = 0; //타이핑 인터벌을 관리하는 변수
     
     
-    // 타이핑할 텍스트를 가져옴 
-    let typingTxt = text[liIndex];
+    let typingTxt = text[textIndex];  // 타이핑할 텍스트를 가져옴 
     typingTxt = typingTxt.split(""); // 텍스트를 한글자씩 자름 ex(안,녕,하,세,요)
+    tyInt = setInterval(typing, 200); // 첫번재 반복동작 
 
-    // 타이핑이 진행되지 않았으면
-    if(typingBool == false)
-    { 
-        typingBool = true; //타이핑 true로 변경,
-        tyInt = setInterval(typing, 200); // 첫번재 반복동작 
-    } 
-         
     function typing()
     { 
+        // 타이핑할 텍스트의 길이만큼 실행
         if(typingIdx < typingTxt.length)
         { 
-            $('.typing').append(typingTxt[typingIdx]); // 타이핑될 텍스트 길이만큼 반복한다.
-            typingIdx++; // 한글자씩 추가해줌
+            // .typing에 한글자씩 글자를 추가해준다.
+            $('.typing').append(typingTxt[typingIdx]);
+            typingIdx++;
+
+            // 타이핑이 끝나면
             if(typingIdx == typingTxt.length)
             {
-                //첫번째 단어가 끝나면 잠시 멈춘다.
-                clearInterval(tyInt);
+                clearInterval(tyInt); //첫번째 단어가 끝나면 잠시 멈춤
                 setTimeout(function()
                     {
-                        tyInt = setInterval(typing,200);
+                        tyInt = setInterval(typing, 200); // 글자 삭제를 위해 다시 실행
                     },1000);
             }
         }
         else
         { 
-            //한문장이끝나면
-            if(-typingTxt.length - 1 < del )
+            // 한 문장이 끝나면, 뒤에서부터 한 글자씩 삭제해야함
+            // del이 지워야할 길이보다 크거나 같을때까지 실행
+            if( -typingTxt.length <= del )
             {
-                //한글자씩 지운다.
+                //뒤에서 한글자씩 지운다. slice(시작인덱스, 종료인덱스) 종료값은 포함x
                 $('.typing').html(typingTxt.slice(0, del))
                 del--;
             }
             else
             {
-                if(liIndex >= arryLength-1)
+                // 배열의 길이만큼 돌았으면 textIndex초기화
+                if (textIndex >= arryLength-1 )
                 {
-                    liIndex=0;
+                    textIndex = 0;
                 }
                 else
-                {
-                    liIndex++;
+                {   // 다음 문장 실행
+                    textIndex++;
                 }
 
                 //변수초기화 
                 typingIdx=0;
                 del= -1;
-                typingTxt = text[liIndex];
+                typingTxt = text[textIndex];
 
-                //500ms후 다음분장 타이핑 
+                //0.5초후 다음문장 타이핑 
                 clearInterval(tyInt);
                 setTimeout(function()
                 {
-                    tyInt = setInterval(typing,200);
-                },500);
+                    tyInt = setInterval(typing, 200);
+                }, 500);
            }
         } 
     }  
@@ -90,7 +85,6 @@ $(document).ready(function()
         index = $(this).index(); 
         //해당하는 상세화면이 나오게함
         $('.portfolio .listMore').show();
-        $('.portfolio .moreItem > li').removeClass('active');
         $('.portfolio .moreItem > li').eq(index).addClass('active');
         $('body').css('overflow','hidden');
 
@@ -126,11 +120,6 @@ $(document).ready(function()
         loop: true,
         autoplay : { delay: 3000 },
         speed: 300,
-        loopFillGroupWithBlank : true,
-        navigation: {  
-            nextEl: ".design-item-next",
-            prevEl: ".design-item-prev",
-        },
         breakpoints:
         {
             320:
@@ -237,7 +226,6 @@ $(document).ready(function()
                 start: 'center 100%',
                 end: '0% 100%', //시작과 동시에 애니메이션 종료
                 scrub: 1,
-                //markers: true,
             }
     })
     .to('.portfolio h2', {
@@ -287,7 +275,6 @@ $(document).ready(function()
             start: 'bottom bottom',
             end: 'bottom bottom',
             scrub: 1,
-            //markers: true,
         }
     })
     .from('.design h2', {
