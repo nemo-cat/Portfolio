@@ -16,7 +16,6 @@ $(document).ready(function()
     let del = -1; // 텍스트 삭제를 위한 인덱스
     let tyInt = 0; //타이핑 인터벌을 관리하는 변수
     
-    
     let typingTxt = text[textIndex];  // 타이핑할 텍스트를 가져옴 
     typingTxt = typingTxt.split(""); // 텍스트를 한글자씩 자름 ex(안,녕,하,세,요)
     tyInt = setInterval(typing, 200); // 첫번재 반복동작 
@@ -61,12 +60,10 @@ $(document).ready(function()
                 {   // 다음 문장 실행
                     textIndex++;
                 }
-
                 //변수초기화 
                 typingIdx=0;
                 del= -1;
                 typingTxt = text[textIndex];
-
                 //0.5초후 다음문장 타이핑 
                 clearInterval(tyInt);
                 setTimeout(function()
